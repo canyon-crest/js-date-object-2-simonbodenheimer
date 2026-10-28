@@ -72,7 +72,7 @@ let timeStart= new Date().getTime();
 let interval = setInterval(timer, 10);
 function timer(){
     let end =d.getTime();
-    let timerTime=(end-timeStart)/1000;
+    let timerTime=((end-timeStart)/1000).toFixed(3);
     document.getElementById("myTimer").innerHTML=timerTime;
 }
 
@@ -88,7 +88,7 @@ function timer(){
 
 // STEP 13: Create a variable to track whether the timer is
 //          currently running (let running = true;)
-
+let running = true;
 // STEP 14: Add a click event listener to the button (ID "myBtn").
 //          Inside the listener:
 //          a) If running is true:
@@ -100,3 +100,5 @@ function timer(){
 //             - Start a new setInterval (same as STEP 12)
 //             - Change button innerHTML to "Stop"
 //             - Set running to true
+myBtn.addEventListener('click', timer);
+
