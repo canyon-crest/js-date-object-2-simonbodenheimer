@@ -16,20 +16,20 @@
 // element with ID "warmUpDate".
 
 // STEP 1: Create a new Date object using: let now = new Date();
-
+let d = new Date();
 // STEP 2: Use .getDay() to get the day of the week as a number.
 //         Sunday = 0, Monday = 1, Tuesday = 2, ... Saturday = 6
-
+let date = d.getDay();
 // STEP 3: Create an array of day names:
 //         let days = ["Sunday", "Monday", "Tuesday", "Wednesday",
 //                     "Thursday", "Friday", "Saturday"];
-
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 // STEP 4: Use the day number as an index to get the day name
 //         from the array.
-
+let day = days[date];
 // STEP 5: Display the day name in the element with ID "warmUpDate"
 //         using document.getElementById("warmUpDate").innerHTML
-
+document.getElementById(warmUpDate).innerHTML = day;
 
 // ============================================
 //  PART 1: Current Date Display
@@ -43,14 +43,14 @@
 // STEP 7: Get the month using .getMonth()
 //         IMPORTANT: .getMonth() returns 0–11 (January = 0)
 //         so you must add 1 to get the correct month number.
-
+let month=d.getMonth()+1;
 // STEP 8: Get the day of the month using .getDate()
-
+let dayNum=d.getDate();
 // STEP 9: Get the year using .getFullYear()
-
+let year=d.getFullYear();
 // STEP 10: Build the date string: month + "/" + day + "/" + year
 //          Display it in the element with ID "myDate"
-
+document.getElementById("myDate").innerHTML = month + "/" + dayNum + "/" + year;
 
 // ============================================
 //  PART 2: Elapsed Timer
@@ -61,7 +61,7 @@
 
 // STEP 11: Record the start time using new Date().getTime()
 //          This gives you the current time in milliseconds.
-
+let timeStart= new Date().getTime();
 // STEP 12: Create a variable to hold the timer ID (for stopping later).
 //          Use setInterval() with a delay of 10 milliseconds.
 //          Inside the interval function:
@@ -69,7 +69,12 @@
 //          b) Calculate elapsed seconds: (currentTime - startTime) / 1000
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
-
+let interval = setInterval(timer, 10);
+function timer(){
+    let end =d.getTime();
+    let timerTime=(end-timeStart)/1000;
+    document.getElementById("myTimer").innerHTML=timerTime;
+}
 
 // ============================================
 //  PART 3: Start/Stop Toggle Button
