@@ -100,5 +100,16 @@ let running = true;
 //             - Start a new setInterval (same as STEP 12)
 //             - Change button innerHTML to "Stop"
 //             - Set running to true
-myBtn.addEventListener('click', timer);
+document.getElementById("myBtn").addEventListener('click', function(){
+    if(running){
+        clearInterval(interval);
+            myBtn.innerHTML = "Start"
+            running = false;
+    } else{
+        timeStart = d.getTime();
+        interval = setInterval(timer, 10);
+        myBtn.innerHTML = "Stop";
+        running = true;
+    }
+})
 
