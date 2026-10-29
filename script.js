@@ -71,7 +71,7 @@ let timeStart= new Date().getTime();
 //             in the element with ID "myTimer"
 let interval = setInterval(timer, 10);
 function timer(){
-    let end =d.getTime();
+    let end = new Date().getTime();
     let timerTime=((end-timeStart)/1000).toFixed(3);
     document.getElementById("myTimer").innerHTML=timerTime;
 }
@@ -106,7 +106,7 @@ document.getElementById("myBtn").addEventListener('click', function(){
             myBtn.innerHTML = "Start"
             running = false;
     } else{
-        timeStart = d.getTime();
+        timeStart = new Date().getTime();
         interval = setInterval(timer, 10);
         myBtn.innerHTML = "Stop";
         running = true;
